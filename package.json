@@ -4,9 +4,10 @@
   "description": "Api for street animals adoption",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "jest",
     "start": "node index.js",
     "start:dev": "nodemon index.js",
+    "lint": "npx eslint controllers/ __test__/ middlewares/ models/ seeders/ app.js",
     "precommit": "npm run lint"
   },
   "repository": {
@@ -25,6 +26,8 @@
   "homepage": "https://github.com/adalbertorsilva/find_and_adopt#readme",
   "dependencies": {
     "autobind": "^1.0.3",
+    "base64-img": "^1.0.4",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
