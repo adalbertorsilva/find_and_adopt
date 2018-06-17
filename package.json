@@ -4,7 +4,7 @@
   "description": "Api for street animals adoption",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test sequelize db:migrate; jest --forceExit --verbose",
     "start": "node index.js",
     "start:dev": "nodemon index.js",
     "lint": "npx eslint controllers/ __test__/ middlewares/ models/ seeders/ app.js",
@@ -26,12 +26,13 @@
   "homepage": "https://github.com/adalbertorsilva/find_and_adopt#readme",
   "dependencies": {
     "autobind": "^1.0.3",
-    "base64-img": "^1.0.4",
+    "aws-sdk": "^2.259.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "hashcode": "^1.0.3",
     "jsonwebtoken": "^8.3.0",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
@@ -40,6 +41,7 @@
     "sequelize-cli": "^4.0.0"
   },
   "devDependencies": {
+    "base64-img": "^1.0.4",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
