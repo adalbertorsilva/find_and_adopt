@@ -9,13 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       location: {
-        type: Sequelize.GEOMETRY('POINT')
+        type: Sequelize.GEOMETRY('POINT'),
+        allowNull: false
       },
       description: {
         type: Sequelize.TEXT
       },
       photo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       created_at: {
         allowNull: false,

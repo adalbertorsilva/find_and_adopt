@@ -7,7 +7,8 @@ module.exports = (sequelize) => {
       return super.init({
         location: DataTypes.GEOMETRY,
         description: DataTypes.TEXT,
-        photo: DataTypes.STRING
+        photo: DataTypes.STRING,
+        created_at: DataTypes.DATE
       }, { sequelize, underscored: true, timestamps: false })
     }
 

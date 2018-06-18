@@ -8,8 +8,18 @@ class AuthenticationMiddleware {
     autoBind(this)
   }
 
+  validateAuthentication (req, res, next) {
+    try {
+      const token = req.get('Authorization')
+      this.authenticate(token)
+      next()
+    } catch (error) {
+      res.status(error.status).send({message: error.message})
+    }
+  }
+
   authenticate (token) {
-    if (token === null) {
+    if (!token) {
       throw new NullTokenError()
     }
 
