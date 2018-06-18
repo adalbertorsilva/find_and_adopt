@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/adalbertorsilva/find_and_adopt#readme",
   "dependencies": {
-    "autobind": "^1.0.3",
+    "auto-bind": "^1.2.0",
     "aws-sdk": "^2.259.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
