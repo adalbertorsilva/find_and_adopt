@@ -1,4 +1,6 @@
 const autoBind = require('auto-bind')
+const moment = require('moment')
+const { Pet } = require('../models')
 
 class PetsController {
   constructor () {
@@ -6,7 +8,11 @@ class PetsController {
   }
 
   async create (req, res) {
-    return res.status(200).send()
+    const payload = req.body
+    payload.created_at = moment().toDate()
+    payload.location = {type: 'Point', coordinates: req.body.location}
+    const pet = await Pet.create(payload)
+    return res.status(200).send(pet)
   }
 }
 
