@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   class Pet extends Model {
     static init (sequelize) {
       return super.init({
-        location: DataTypes.GEOMETRY,
+        location: DataTypes.GEOMETRY('POINT'),
         description: DataTypes.TEXT,
         photo: DataTypes.STRING,
         created_at: DataTypes.DATE
