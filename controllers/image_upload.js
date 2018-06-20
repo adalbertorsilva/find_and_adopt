@@ -1,6 +1,7 @@
 const autoBind = require('auto-bind')
 const AWS = require('aws-sdk')
 const Bluebird = require('bluebird')
+const moment = require('moment')
 require('dotenv').config()
 
 class ImageUploadController {
@@ -11,18 +12,16 @@ class ImageUploadController {
     this.s3 = Bluebird.promisifyAll(new AWS.S3())
   }
 
-  async uploadImage (base64Image) {
-    const imageBuffer = Buffer.from(base64Image, 'base64')
+  async uploadImage (payload) {
+    const imageBuffer = Buffer.from(payload.photo, 'base64')
     const uploadConfig = {
-      Key: 'bla.jpg',
+      Key: `${payload.location[0]}${payload.location[1]}${moment().valueOf()}.jpg`,
       Bucket: process.env.AWS_BUCKET,
-      Body: imageBuffer,
-      ContentEncoding: 'base64',
-      ContentType: 'image/jpeg'
+      Body: imageBuffer
     }
 
-    const uploadedImage = await this.s3.putObjectAsync(uploadConfig)
-    return uploadedImage
+    const uploadedImage = await this.s3.uploadAsync(uploadConfig)
+    return uploadedImage.Location
   }
 }
 

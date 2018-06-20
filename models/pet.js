@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
     }
 
     static async findNotifiedAreas (location, radius) {
-      return sequelize.query('SELECT * FROM "Pets" WHERE ST_DWithin(point::geography, ST_MakePoint(:longitude,:latitude)::geography, :radius)', { replacements: { longitude: location.longitude, latitude: location.latitude, radius }, model: Pet })
+      return sequelize.query('SELECT * FROM "Pets" WHERE ST_DWithin(location::geography, ST_MakePoint(:longitude,:latitude)::geography, :radius)', { replacements: { longitude: location.longitude, latitude: location.latitude, radius }, model: Pet })
     }
   }
 
