@@ -10,7 +10,7 @@ addons:
     packages:
     - postgresql-9.6-postgis-2.3
 before_script:
-  - psql -c 'CREATE DATABASE bionexo_test;' -U postgres
+  - psql -c 'CREATE DATABASE find_and_adopt_test;' -U postgres
 env:
   global:
     secure: N2WIdmrR27QGWj7jA1dzGB2bAJpSz2zIw7U5rQnE9KhgRybdi346XkESWkPlcca/N//j+Cy91nxRfAxF0Y8lV0sq098Y0UcNmRL3J+h41HmmOFu+nDp5aRlCZ77oIe7owL1m9XNuJMUn6ukk2XcCaOB26ZhcMNJESvDdoOehzbgQjCabsxCP3OzSWKikhxCffT48andmvdjPdq2F7k+RE/H/A2rd/+cGudzHAQUS5TAkdoTY60Vy1TFHTnhihiPiO2MajVYY8x7k5zU86muEXL2MuAspq1YhQPWnZxoelZbBrJiC+98vLvwdl8nVJ2SB2Th/CYk5EeN1/pFPc3C9vr48jxstGnKlaoj14Om36enWzqsdhPjKLJxgymao/0cK57mm+aCkriV9Wf7Yyb0isciZDxWTM4Mf1Wdym1xZJhtBMj8jJPL9cagwMcOOj4lx05V5/G1wGMB2aepmgd8w7Oho1+7APSaAcA4qn7kYfK8wfrDCm1ol4lXeL1viuV5z7D21KxwPRqLqk6kUs8ZgSTnhAkhO2SyIRolJ8vuNtTDWrbqNQupva8QKPjTypN/K1wKeLviVPLe6R4UO+8PtDJSw07uVF+0fJIbOg5QswBXsREBndK1/BnimpDp0dltGtMuPHqXYykh5tswAVJNXdqgXokv9tOeI8hZ/3kA6Y2U=
