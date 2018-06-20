@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test npx sequelize db:migrate; jest --forceExit --verbose",
-    "start": "node index.js",
+    "start": "npx sequelize db:migrate; node index.js",
     "start:dev": "nodemon index.js",
     "lint": "npx eslint controllers/ __test__/ middlewares/ models/ seeders/ app.js",
     "precommit": "npm run lint"
