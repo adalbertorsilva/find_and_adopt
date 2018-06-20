@@ -31,6 +31,11 @@ class PetsController {
     const pets = await Pet.findNotifiedAreas(location, req.query.radius)
     res.status(200).send(pets)
   }
+
+  async find (req, res) {
+    const pet = await Pet.findById(req.query.id)
+    res.status(200).send(pet)
+  }
 }
 
 module.exports = new PetsController()

@@ -4,4 +4,5 @@ const { pets: petsController } = require('../controllers')
 module.exports = (app) => {
   app.post('/pets', AuthenticationMiddleware.validateAuthentication, petsController.create)
   app.get('/pets', AuthenticationMiddleware.validateAuthentication, petsController.search)
+  app.get('/pets/:id', AuthenticationMiddleware.validateAuthentication, petsController.find)
 }

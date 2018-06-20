@@ -56,11 +56,30 @@ describe('PETS', () => {
       await Pet.bulkCreate([animal1, animal2, animal3])
     })
 
-    describe('When get /pets with ', () => {
+    describe('When get /pets ', () => {
       it('should return a 200 status and a list of founf animals', async () => {
         const response = await request(app).get('/pets?long=-23.589543&lat=-46.607310&radius=5000').set('Authorization', tokenHelper.getToken())
         expect(response.status).toBe(200)
         expect(response.body.length).toBe(4)
+      })
+    })
+
+    describe('When get /pets/:id ', () => {
+      let lostAnimal
+      const lostAnimalPayload = {
+        location: {type: 'Point', coordinates: [-23.601544, -46.603094]},
+        description: 'lost animal',
+        created_at: moment().toDate(),
+        photo: 'some heart breaking photo'
+      }
+
+      beforeEach(async () => {
+        lostAnimal = await Pet.create(lostAnimalPayload)
+      })
+
+      it('should return a 200 status and a object of a animal', async () => {
+        const response = await request(app).get(`/pets/${lostAnimal.id}`).set('Authorization', tokenHelper.getToken())
+        expect(response.status).toBe(200)
       })
     })
   })
