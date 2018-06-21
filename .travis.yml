@@ -2,6 +2,9 @@ language: node_js
 services:
   - postgresql
 addons:
+  code_climate:
+    repo_token:
+      secure: "pl/fz72QBVKDzI/WczZ4YzK2NbolQgDhF0IkdHrFSTLSTS7x39DpHocc00ndtTqkuyKms6x3MSSDj3peUia2c0Xek6siZPx2T4slEFiPlptPgDeGXrJvuOEgtUFyS3QWF0sSAkBWky4VZJTiKREw3wW5eb8H62c9Zf0XsXo5eADwsJE8/SKLpJRlS1dnKGfHYpJn/MAhP1+UPUgSHBEDryEKTAZo2cQgdYgliuIIkzu1ZM0QP8yHSJSRCBFqAhbFByL3GgCqAKQq/I11wnKshz8EyQvUHo3JI7pV10HGCB08FTWun8qZ8ZFMcdRAa8i9PlBFt488r+vThmaq5nniqLFwBGZDVqHTlYpHmKyMFtWDGM/W8km5zoh0Ev84O+OksU8J/zD6HtSjJnkyuRF3GFrGo3ocjzEadKXYYcUQ23Baa33gm8s5/vQiXe/9QrAUIB0RmHkAkz3Ugh2uvjXbOlZ3PzHmAEKaQFRabaPsSFbohbzI5pD8k0zlbj3PCZa65AOYyeNFS1VccPc7Oo36nd1TpABHSjWUC4xgNm3nKz2ZAgRUVvh1p5l1jorFRmIVhlIDYoixUte7Ua1o1XitgC/90eIvpK6IZ/YS8/LbhI8L9sOUzsIlEq8JL+xbUqxsyZIsz68pvO7wh0YBYt3iKylZ+iv4ZM7C7r5V+5GrosA="
   postgresql: 9.6
   apt:
     packages:
