@@ -7,4 +7,4 @@ addons:
     packages:
     - postgresql-9.6-postgis-2.3
 before_script:
-  - psql -c 'CREATE DATABASE bionexo_test;' -U postgres
+  - psql -c 'CREATE DATABASE find_and_adopt_test;' -U postgres
