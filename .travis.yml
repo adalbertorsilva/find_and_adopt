@@ -21,4 +21,4 @@ deploy:
   provider: heroku
   api_key:
     secure: WufA1Enc5qk44AB5OWmyMfxfBW+0vW45cDGWt+ZLKQQWUNLElmdE6JEmT6raBykFCl91aYrLhV2FwQMU7ZzsScTvOaAeToCArTLcCTzIqseO5N98HEmc78PAhjTIgR6SHihR3GcRdu53gzT5EDhQttxSvg0e++bPgQoIZTbP/mrESzouhe7WQvuR+ZXmJcLLls58gLf4OpQ//xH87yWJk/3dpztmn1xXHTORSwuBqlnKgYRCQVqEdPGSaLxSyXx1H0Wi1+PKglQ2uEP0WuCDSfZA+d2Fl/a2gAbEX2ua7dQDqn5oCc8oBdT9xbsz/uGN90O+kW2O6jts2qGHwArlrH6Mlz+c7c40iqISO6CKOr0lXv9YZz+WTAExpG/ePUY4Kt25trXY07W0V8ulHSn7UsL5cwWgcbV+CfNPqVS9nxKwiKzkHgI1A4lV9n4Q5++ZhV6Jdhcf7Jk9LXPgIGIz+zAi2tDaWakFRBvRDH/sgqCHSs9aBzqbF0Painc7bitd7CokCZaO/VYDLmze7lN+jkPe4+TpNgwB2Q+i1edn1NaJSGy6Pp+P5aCsEqvcLACxoRHIrVsBb2BLcGKrYRDbTpyKeSdjBIG3dHNiBVfBETQIO+i1n1jGm/M9QvagCMyoySBJ/nIaf/BSmEGD5mkPACrxL7CZ2+EaPyYRRm3aQrU=
-  app: find-and-adopt_
+  app: find-and-adopt
