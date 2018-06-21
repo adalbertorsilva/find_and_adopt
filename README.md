@@ -1,3 +1,3 @@
 # Find and Adopt !
 
-#OK
+https://travis-ci.org/adalbertorsilva/find_and_adopt.svg?branch=master
