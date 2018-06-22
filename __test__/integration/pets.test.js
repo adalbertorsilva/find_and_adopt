@@ -28,6 +28,18 @@ describe('PETS', () => {
         expect(response.body).toHaveProperty('created_at')
       })
     })
+
+    describe('When post /pets with a missing field payload', () => {
+      it('should return a 200 status and a response object', async () => {
+        const completePayload = {
+          location: [-23.589543, -46.607310],
+          description: 'Lost dog'
+        }
+
+        const response = await request(app).post('/pets').set('Authorization', tokenHelper.getToken()).send(completePayload)
+        expect(response.status).toBe(400)
+      })
+    })
   })
 
   describe('GET', () => {
