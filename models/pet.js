@@ -12,8 +12,8 @@ module.exports = (sequelize) => {
       }, { sequelize, underscored: true, timestamps: false })
     }
 
-    static async findNotifiedAreas (location, radius) {
-      return sequelize.query('SELECT * FROM "Pets" WHERE ST_DWithin(location::geography, ST_MakePoint(:longitude,:latitude)::geography, :radius)', { replacements: { longitude: location.longitude, latitude: location.latitude, radius }, model: Pet })
+    static async searchAnimals (searchAttributes) {
+      return sequelize.query('SELECT * FROM "Pets" WHERE ST_DWithin(location::geography, ST_MakePoint(:longitude,:latitude)::geography, :radius)', { replacements: { longitude: searchAttributes.longitude, latitude: searchAttributes.latitude, radius: searchAttributes.radius }, model: Pet })
     }
   }
 

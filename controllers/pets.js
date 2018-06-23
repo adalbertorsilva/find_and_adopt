@@ -1,25 +1,17 @@
 const autoBind = require('auto-bind')
 const moment = require('moment')
-const Joi = require('joi')
+const {validate} = require('joi')
 const { Pet } = require('../models')
 const imageUploadController = require('../controllers/image_upload')
-const { missing_field_error: MissinFieldError } = require('../errors')
-const { pet: petSchema } = require('../schemas')
+const { pet: petSchema, search: searchSchema } = require('../schemas')
 
 class PetsController {
   constructor () {
     autoBind(this)
   }
 
-  isNullOrEmpty (attribute) {
-    return attribute === null || attribute === undefined
-  }
-
   async createPayload (requestBody) {
-    if (this.isNullOrEmpty(requestBody.location) || this.isNullOrEmpty(requestBody.photo)) {
-      throw new MissinFieldError()
-    }
-
+    validate(requestBody, petSchema)
     return {
       location: {type: 'Point', coordinates: requestBody.location},
       photo: await imageUploadController.uploadImage(requestBody),
@@ -28,24 +20,33 @@ class PetsController {
     }
   }
 
+  respondError (res, error) {
+    return res.status(error.status).send({message: error.message})
+  }
+
   async create (req, res) {
     try {
-      console.log('SCHEMA -------------> ', Joi.validate(req.body, petSchema))
       const payload = await this.createPayload(req.body)
       const pet = await Pet.create(payload)
       return res.status(200).send(pet)
     } catch (error) {
-      return res.status(error.status).send(error.message)
+      return this.respondError(res, error)
     }
   }
 
   async search (req, res) {
-    const location = {
-      longitude: req.query.long,
-      latitude: req.query.lat
+    try {
+      const searchAttributes = {
+        longitude: req.query.long,
+        latitude: req.query.lat,
+        radius: req.query.radius
+      }
+      validate(searchAttributes, searchSchema)
+      const pets = await Pet.searchAnimals(searchAttributes)
+      return res.status(200).send(pets)
+    } catch (error) {
+      return this.respondError(res, error)
     }
-    const pets = await Pet.findNotifiedAreas(location, req.query.radius)
-    res.status(200).send(pets)
   }
 
   async find (req, res) {

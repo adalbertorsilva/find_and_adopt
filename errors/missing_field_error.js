@@ -1,8 +1,9 @@
 
 class MissingFieldError extends Error {
-  constructor () {
+  constructor (attribute) {
     super()
-    this.status = 400
+    this.status = 422
+    this.message = `The attribute ${attribute} is required`
   }
 }
 
