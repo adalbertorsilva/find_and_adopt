@@ -17,7 +17,7 @@ describe('PETS', () => {
         }
 
         const response = await request(app).post('/pets').set('Authorization', tokenHelper.getToken()).send(completePayload)
-        expect(response.status).toBe(200)
+        expect(response.status).toBe(201)
         expect(response.body).toHaveProperty('id')
         expect(response.body.id).not.toBeNull()
         expect(response.body).toHaveProperty('location')
