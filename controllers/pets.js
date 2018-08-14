@@ -1,7 +1,7 @@
 const autoBind = require('auto-bind')
 const moment = require('moment')
 const { Pet } = require('../models')
-const imageUploadController = require('../controllers/image_upload')
+const awsClient = require('../clients/aws_client')
 
 class PetsController {
   constructor () {
@@ -11,7 +11,7 @@ class PetsController {
   async createPayload (requestBody) {
     return {
       location: {type: 'Point', coordinates: requestBody.location},
-      photo: await imageUploadController.uploadImage(requestBody),
+      photo: await awsClient.uploadImage(requestBody),
       description: requestBody.description,
       created_at: moment().toDate()
     }

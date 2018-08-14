@@ -1,5 +1,5 @@
 const request = require('supertest')
-const app = require('../../server/app')
+const app = require('../../config/app')
 const tokenHelper = require('../helper/token-helper')
 
 describe('AUTH', () => {

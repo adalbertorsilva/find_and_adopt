@@ -1,15 +1,15 @@
 const imagesHelper = require('../helper/image-converter-helper')
-const {image_upload: imageUploadController} = require('../../controllers')
+const awsClient = require('../../clients/aws_client')
 const urlHelper = require('../helper/url-validator-helper')
 
-describe('IMAGE UPLOAD', () => {
+describe('AWS CLIENT INTEGRATION TEST', () => {
   describe('When the payload is passed', () => {
     it('should return an image url', async () => {
       const payload = {
-        photo: imagesHelper.getDogImage(),
+        photo: imagesHelper.getImage('tino'),
         location: [-23.589543, -46.607310]
       }
-      const imageResponse = await imageUploadController.uploadImage(payload)
+      const imageResponse = await awsClient.uploadImage(payload)
       expect(urlHelper.isUrl(imageResponse)).toBeTruthy()
     })
   })

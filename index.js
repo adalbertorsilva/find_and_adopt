@@ -1,4 +1,4 @@
-const app = require('./server/app')
+const app = require('./config/app')
 const PORT = parseInt(process.env.PORT, 10) || 3000
 app.set('port', PORT)
 

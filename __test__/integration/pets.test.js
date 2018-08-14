@@ -1,19 +1,19 @@
 const request = require('supertest')
 const moment = require('moment')
-const app = require('../../server/app')
+const app = require('../../config/app')
 const tokenHelper = require('../helper/token-helper')
 const imagesHelper = require('../helper/image-converter-helper')
 const urlHelper = require('../helper/url-validator-helper')
 const { Pet } = require('../../models')
 
-describe('PETS', () => {
+describe('PETS CONTROLLER INTEGRATION TEST', () => {
   describe('POST', () => {
     describe('When post /pets with a full payload', () => {
-      it('should return a 200 status and a response object', async () => {
+      it('should return a 201 status and a response object', async () => {
         const completePayload = {
           location: [-23.589543, -46.607310],
           description: 'Lost dog',
-          photo: imagesHelper.getDogImage()
+          photo: imagesHelper.getImage('tino')
         }
 
         const response = await request(app).post('/pets').set('Authorization', tokenHelper.getToken()).send(completePayload)
@@ -46,7 +46,7 @@ describe('PETS', () => {
       it('should return a 422 status and an error message', async () => {
         const completePayload = {
           description: 'Lost dog',
-          photo: imagesHelper.getDogImage()
+          photo: imagesHelper.getImage('tino')
         }
 
         const response = await request(app).post('/pets').set('Authorization', tokenHelper.getToken()).send(completePayload)
@@ -73,7 +73,7 @@ describe('PETS', () => {
         const completePayload = {
           location: [-23.589543],
           description: 'Lost dog',
-          photo: imagesHelper.getDogImage()
+          photo: imagesHelper.getImage('tino')
         }
 
         const response = await request(app).post('/pets').set('Authorization', tokenHelper.getToken()).send(completePayload)
@@ -87,7 +87,7 @@ describe('PETS', () => {
         const completePayload = {
           location: [-23.589543],
           description: 'Lost dog',
-          photo: imagesHelper.getDogImage()
+          photo: imagesHelper.getImage('tino')
         }
 
         const response = await request(app).post('/pets').set('Authorization', tokenHelper.getToken()).send(completePayload)
