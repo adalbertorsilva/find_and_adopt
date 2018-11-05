@@ -13,7 +13,7 @@ before_script:
   - psql -c 'CREATE DATABASE find_and_adopt_test;' -U postgres
   - npm install codeclimate-test-reporter
 after_script:
-  - npx codeclimate-test-reporter < ./coverage/lcov.info
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 env:
   global:
   - secure: hhr5yPxL6GIUnHomvit832O8EmIA4R1+23KpZYhKX4Zi2I+k1VJk9qSUDo8n8wuHp9AqdgFjr4/CJHLyXFhhFSzfpnEOjnbLUOA8w6kSHLToXix0USnAvUQwWCbCw0/hXHH6jutZSFkH2LoE3MlrDvg411SRtr27oQ2ORBWosakNhMpJ/2j9xJR5VQ8/Z2wrubhyuYlXSf0f+3EvbRgxJjmSN1gD1euMmYTP02kf3FO/rkiFUTUxyIhfiiPu57y0t5W4UqLSNuzoQmOpq7Jo5qaW+m/5Z6y7297Bq/H1XiIEU2+ELhxBiFuAmVGyr30NkJj32cfXEy5fWXf0xLLjGdMfqTSuTlQMF1obzzVpug+63cAZDAAlrO/FRJrbuUaO0LeOutRZ3YOHrSDbzoGBBJ1n50F/xkYvulTWDFILVkYHrTOQkZfnEhTLuO8BwoK1gbB6aiMOzARNdZK7Ml62oPpP3ljI68W0YtYEC/M4sa5GOVl4aodIOO5k6wnszYlFUn1Vpt3TNskW+/3VXq+E6NLfbcsroE3t0HMXcyOuByo/UY9XS0cvZCBm29/O/7RS2acUScnjW12GysN3RsDMoBMCk/sL2opGH1gU0VNhNQILk3liQNJbv0yvLbCNPpfyZYY4zjGUNuyPhGsm24ZM7o20bdcXUQ/Vg3VAaqLhfuk=

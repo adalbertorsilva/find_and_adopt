@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "base64-img": "^1.0.4",
+    "coveralls": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
